@@ -20,8 +20,42 @@ while (randomNumbers.length < 5){
 alert(randomNumbers);
 
 //parte immediatamente un countdown di 30 secondi 
+//creo variabile da cui parte il countdown
+var secondi = 3;
+//utilizzo setInterval
+var countdown = setInterval(function(){
 
-//terminati i 30 secondi vengono chiesti 5 numeri all' utente
+    if(secondi==0){
+        //se secondi=0, countdown finisce
+        //blocco setInterval 
+
+        clearInterval(countdown);
+
+        //chiedo all' utente 5 numeri e li pusho in numeriUtente usando ciclo for
+        
+        for (var i = 0; i < 5; i++){
+            var richiestaNumero = parseInt(prompt('dammi un numero'));
+            //console.log(richiestaNumero);
+
+            if(numeriUtente.includes(richiestaNumero) == false){
+                numeriUtente.push(richiestaNumero);
+            
+            }
+        }
+    
+    }else{
+        //altrimenti continuo a decrementare secondi
+        secondi--;
+    }
+    
+}, 1000);
+
+//creo array vuoto in cui vengono inseriti i 5 numeri dati dall'utente
+var numeriUtente =[];
+console.log(numeriUtente);
+
+
 
 //programma stampa quanti e quali numeri ha individuato l'utente
 
+    
